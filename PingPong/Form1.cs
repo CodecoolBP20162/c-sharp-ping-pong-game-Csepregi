@@ -22,11 +22,16 @@ namespace PingPong
             timer1.Enabled = true;
             Cursor.Hide();
 
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.TopMost = true;
-            this.Bounds = Screen.PrimaryScreen.Bounds;
+            this.FormBorderStyle = FormBorderStyle.None;   //Remove any border
+            this.TopMost = true;                           //Bring the form to the front
+            this.Bounds = Screen.PrimaryScreen.Bounds;      // Make it fullscreen
+
 
             Racket.Top = playground.Bottom - (playground.Bottom / 10); // Set the position of the racket
+
+            gameover_lbl.Left = (playground.Width / 2) - (gameover_lbl.Width / 2);   // Position to center
+            gameover_lbl.Top = (playground.Height / 2) - (gameover_lbl.Height / 2);
+            gameover_lbl.Visible = false;     //Hide
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -36,12 +41,14 @@ namespace PingPong
             Ball.Left += speed_left;   //Move the ball
             Ball.Top += speed_top;
 
-            if (Ball.Bottom >= Racket.Top && Ball.Bottom <= Racket.Bottom && Ball.Left >= Racket.Left && Ball.Right <= Racket.Right)  //Racket collision
+            if (Ball.Bounds.IntersectsWith(Racket.Bounds))
+            //if (Ball.Bottom >= Racket.Top && Ball.Bottom <= Racket.Bottom && Ball.Left >= Racket.Left && Ball.Right <= Racket.Right)  //Racket collision
             {
                 speed_top += 2;
                 speed_left += 2;
                 speed_top = -speed_top;  //Change direction
                 point += 1;
+                points_lbl.Text = point.ToString();
 
             }
 
@@ -59,13 +66,34 @@ namespace PingPong
             }
 
             if (Ball.Bottom >= playground.Bottom)
+            {
                 timer1.Enabled = false;  //Ball is out -> Stop the game
+                gameover_lbl.Visible = true;
+            }
+
+
         }
 
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape) { this.Close(); } // press escape to quit
+            if (e.KeyCode == Keys.Escape) { Application.Exit(); } // press escape to quit
+            if (e.KeyCode == Keys.F1)
+            {
+                Ball.Top = 50;
+                Ball.Left = 50;
+                speed_left = 4;
+                point = 0;
+                points_lbl.Text = "0";
+                timer1.Enabled = true;
+                gameover_lbl.Visible = false;
+            }
+
+
+
+
+
+
         }
     }
 }

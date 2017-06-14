@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.playground = new System.Windows.Forms.Panel();
+            this.gameover_lbl = new System.Windows.Forms.Label();
+            this.points_lbl = new System.Windows.Forms.Label();
+            this.scorelb = new System.Windows.Forms.Label();
             this.Ball = new System.Windows.Forms.PictureBox();
             this.Racket = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -40,20 +43,60 @@
             // 
             // playground
             // 
+            this.playground.Controls.Add(this.gameover_lbl);
+            this.playground.Controls.Add(this.points_lbl);
+            this.playground.Controls.Add(this.scorelb);
             this.playground.Controls.Add(this.Ball);
             this.playground.Controls.Add(this.Racket);
             this.playground.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playground.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.playground.Location = new System.Drawing.Point(0, 0);
             this.playground.Name = "playground";
             this.playground.Size = new System.Drawing.Size(695, 322);
             this.playground.TabIndex = 0;
             // 
+            // gameover_lbl
+            // 
+            this.gameover_lbl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.gameover_lbl.AutoSize = true;
+            this.gameover_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.gameover_lbl.Location = new System.Drawing.Point(223, 13);
+            this.gameover_lbl.Name = "gameover_lbl";
+            this.gameover_lbl.Size = new System.Drawing.Size(289, 275);
+            this.gameover_lbl.TabIndex = 5;
+            this.gameover_lbl.Text = "Game Over\r\n\r\n\r\nF1 - Restart\r\nExc - Exit";
+            this.gameover_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // points_lbl
+            // 
+            this.points_lbl.AutoSize = true;
+            this.points_lbl.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.points_lbl.Location = new System.Drawing.Point(71, 10);
+            this.points_lbl.Name = "points_lbl";
+            this.points_lbl.Size = new System.Drawing.Size(14, 15);
+            this.points_lbl.TabIndex = 4;
+            this.points_lbl.Text = "0";
+            // 
+            // scorelb
+            // 
+            this.scorelb.AutoSize = true;
+            this.scorelb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.scorelb.Location = new System.Drawing.Point(12, 9);
+            this.scorelb.Name = "scorelb";
+            this.scorelb.Size = new System.Drawing.Size(53, 16);
+            this.scorelb.TabIndex = 3;
+            this.scorelb.Text = "Score:";
+            // 
             // Ball
             // 
-            this.Ball.BackColor = System.Drawing.Color.Red;
+            this.Ball.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Ball.ErrorImage = null;
+            this.Ball.Image = global::PingPong.Properties.Resources.Tennis_Ball;
+            this.Ball.InitialImage = null;
             this.Ball.Location = new System.Drawing.Point(171, 84);
             this.Ball.Name = "Ball";
             this.Ball.Size = new System.Drawing.Size(30, 30);
+            this.Ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Ball.TabIndex = 2;
             this.Ball.TabStop = false;
             // 
@@ -81,6 +124,7 @@
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.playground.ResumeLayout(false);
+            this.playground.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Racket)).EndInit();
             this.ResumeLayout(false);
@@ -93,6 +137,9 @@
         private System.Windows.Forms.PictureBox Ball;
         private System.Windows.Forms.PictureBox Racket;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label points_lbl;
+        private System.Windows.Forms.Label scorelb;
+        private System.Windows.Forms.Label gameover_lbl;
     }
 }
 
