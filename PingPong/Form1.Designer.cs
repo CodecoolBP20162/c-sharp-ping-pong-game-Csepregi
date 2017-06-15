@@ -36,6 +36,9 @@
             this.Ball = new System.Windows.Forms.PictureBox();
             this.Racket = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.level_lbl = new System.Windows.Forms.Label();
+            this.levelSizelbl = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.playground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Racket)).BeginInit();
@@ -43,6 +46,9 @@
             // 
             // playground
             // 
+            this.playground.Controls.Add(this.progressBar);
+            this.playground.Controls.Add(this.levelSizelbl);
+            this.playground.Controls.Add(this.level_lbl);
             this.playground.Controls.Add(this.gameover_lbl);
             this.playground.Controls.Add(this.points_lbl);
             this.playground.Controls.Add(this.scorelb);
@@ -114,6 +120,37 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // level_lbl
+            // 
+            this.level_lbl.AutoSize = true;
+            this.level_lbl.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.level_lbl.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.level_lbl.Location = new System.Drawing.Point(603, 13);
+            this.level_lbl.Name = "level_lbl";
+            this.level_lbl.Size = new System.Drawing.Size(52, 19);
+            this.level_lbl.TabIndex = 6;
+            this.level_lbl.Text = "Level:";
+            this.level_lbl.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // levelSizelbl
+            // 
+            this.levelSizelbl.AutoSize = true;
+            this.levelSizelbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.levelSizelbl.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.levelSizelbl.Location = new System.Drawing.Point(661, 13);
+            this.levelSizelbl.Name = "levelSizelbl";
+            this.levelSizelbl.Size = new System.Drawing.Size(19, 20);
+            this.levelSizelbl.TabIndex = 7;
+            this.levelSizelbl.Text = "0";
+            this.levelSizelbl.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(580, 35);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(100, 23);
+            this.progressBar.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,6 +177,9 @@
         private System.Windows.Forms.Label points_lbl;
         private System.Windows.Forms.Label scorelb;
         private System.Windows.Forms.Label gameover_lbl;
+        private System.Windows.Forms.Label level_lbl;
+        private System.Windows.Forms.Label levelSizelbl;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
 

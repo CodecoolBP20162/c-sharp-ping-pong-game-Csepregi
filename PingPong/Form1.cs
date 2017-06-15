@@ -15,6 +15,7 @@ namespace PingPong
         public int speed_left = 4;  //Speed of the ball
         public int speed_top = 4;
         public int point = 0;         // Scored points
+        public int level = 0;         // Level
 
         public Form1()
         {
@@ -49,6 +50,9 @@ namespace PingPong
                 speed_top = -speed_top;  //Change direction
                 point += 1;
                 points_lbl.Text = point.ToString();
+                level += 1;
+                levelSizelbl.Text = level.ToString();
+                progressBar.Value += 5;
 
             }
 
